@@ -12,7 +12,7 @@ public class GameWorld {
 	}
 	
 	public void update(){
-		
+		tankTesting.move();
 	}
 	
 	public Tank getTank(){

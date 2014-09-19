@@ -16,10 +16,10 @@ public class GameRenderer {
 	//TODO use scrollable camera and adapt to different size screen
 	private OrthographicCamera orthographicCamera;
 	
-	private GameWorld gameWorld;
+	private GameWorld world;
 	
-	public GameRenderer() {
-		gameWorld = new GameWorld();
+	public GameRenderer(GameWorld gameWorld) {
+		world = gameWorld;
 		shapeRenderer = new ShapeRenderer();
 		orthographicCamera = new OrthographicCamera(800,480);
 		shapeRenderer.setProjectionMatrix(orthographicCamera.combined);
@@ -29,7 +29,7 @@ public class GameRenderer {
 		Gdx.gl.glClearColor(1, 0, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		shapeRenderer.begin(ShapeType.Filled);
-		drawTank(gameWorld.getTank());
+		drawTank(world.getTank());
 		shapeRenderer.end();
 	}
 	
@@ -37,5 +37,6 @@ public class GameRenderer {
 		shapeRenderer.setColor(testingTank.getColor());
 		shapeRenderer.rect(testingTank.getPositionX(), testingTank.getPositionY(), 
 				testingTank.getWidth(), testingTank.getHeight());
+		System.out.println(testingTank.getPositionX());
 	}
 }

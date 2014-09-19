@@ -5,13 +5,16 @@ import com.badlogic.gdx.Screen;
 public class GameScreen implements Screen{
 
 	private GameRenderer renderer;
+	private GameWorld world;
 	
 	public GameScreen() {
-		renderer = new GameRenderer();
+		world = new GameWorld();
+		renderer = new GameRenderer(world);
 	}
 	
 	@Override
 	public void render(float delta) {
+		world.update();
 		renderer.render();
 	}
 

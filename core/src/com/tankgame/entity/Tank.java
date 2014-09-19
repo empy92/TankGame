@@ -1,44 +1,23 @@
 package com.tankgame.entity;
 
-import java.awt.Point;
-
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 
-public class Tank {
+public class Tank extends Entity{
 
-	private float width;
-	private float height;
 	private Color color;
-	private float posX;
-	private float posY;
 	
 	public Tank(float width, float height) {
-		this.width = width;
-		this.height = height;
+		super(width, height);
 	}
 	
 	public Tank(float width, float height, Color color) {
-		this.width = width;
-		this.height = height;
+		super(width, height);
 		this.color = color;
 	}
 	
 	public Tank(float width, float height, Color color, float posX, float posY) {
-		this.width = width;
-		this.height = height;
-		this.color = color;
-		this.posX = posX;
-		this.posY = posY;
-	}
-	
-	
-
-	public float getWidth() {
-		return width;
-	}
-
-	public float getHeight() {
-		return height;
+		super(width, height, posX, posY);
 	}
 
 	public Color getColor() {
@@ -49,16 +28,10 @@ public class Tank {
 		this.color = color;
 	}
 	
-	public void setPosition(float posX, float posY){
-		this.posX = posX;
-		this.posY = posY;
+	public void move(){
+		setPositionX(getPositionX()+1);
+		if(getPositionX()>Gdx.graphics.getWidth()/2)
+			setPositionX(Gdx.graphics.getWidth()/-2);
 	}
-	
-	public float getPositionX(){ 
-		return posX;
-	}
-	
-	public float getPositionY(){ 
-		return posY;
-	}
+
 }
