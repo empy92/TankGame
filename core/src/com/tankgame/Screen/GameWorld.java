@@ -9,10 +9,11 @@ public class GameWorld {
 	
 	public GameWorld() {
 		tankTesting = new Tank(50, 50, Color.MAROON);
+		tankTesting.setSpeedX(75);
 	}
 	
-	public void update(){
-		tankTesting.move();
+	public void update(float delta){
+		tankTesting.move(delta);
 	}
 	
 	public Tank getTank(){

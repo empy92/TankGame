@@ -1,5 +1,8 @@
 package com.tankgame.entity;
 
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+
 public abstract class BasicEntity {
 
 	protected float width;
@@ -47,4 +50,6 @@ public abstract class BasicEntity {
 	public void setPositionY(float posY){ 
 		this.posY = posY;
 	}
+	
+	public abstract void draw(ShapeRenderer batch);
 }

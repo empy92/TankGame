@@ -29,14 +29,7 @@ public class GameRenderer {
 		Gdx.gl.glClearColor(1, 0, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		shapeRenderer.begin(ShapeType.Filled);
-		drawTank(world.getTank());
+		world.getTank().draw(shapeRenderer);
 		shapeRenderer.end();
-	}
-	
-	private void drawTank(Tank testingTank){
-		shapeRenderer.setColor(testingTank.getColor());
-		shapeRenderer.rect(testingTank.getPositionX(), testingTank.getPositionY(), 
-				testingTank.getWidth(), testingTank.getHeight());
-		System.out.println(testingTank.getPositionX());
 	}
 }

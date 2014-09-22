@@ -1,6 +1,8 @@
 package com.tankgame.Screen;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.tankgame.InputHandler.InputHandler;
 
 public class GameScreen implements Screen{
 
@@ -10,11 +12,12 @@ public class GameScreen implements Screen{
 	public GameScreen() {
 		world = new GameWorld();
 		renderer = new GameRenderer(world);
+		Gdx.input.setInputProcessor(new InputHandler(world));
 	}
 	
 	@Override
 	public void render(float delta) {
-		world.update();
+		world.update(delta);
 		renderer.render();
 	}
 

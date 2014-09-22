@@ -6,7 +6,6 @@ public abstract class Entity extends BasicEntity{
 	protected float speedX;
 	/** The current speed of this entity vertically (pixels/sec) */
 	protected float speedY;
-	private static final float SPEEDUNIT = 1000;
 	
 	public Entity(float width, float height) {
 		super(width, height);
@@ -44,8 +43,8 @@ public abstract class Entity extends BasicEntity{
 	* @param delta The ammount of time that has passed in milliseconds
 	*/
 	public void move(float delta) {
-		this.posX += (delta * speedX)/SPEEDUNIT;
-		this.posX += (delta * speedY)/SPEEDUNIT;
+		this.posX += (delta * speedX);
+		this.posY += (delta * speedY);
 	}
 	
 	/**
@@ -55,7 +54,6 @@ public abstract class Entity extends BasicEntity{
 	* @return True if the entities collide with each other
 	*/
 	public boolean collidesWith(BasicEntity other) {
-		//TODO implements collision
 		return false;
 	}
 }
