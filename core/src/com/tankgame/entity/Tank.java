@@ -4,11 +4,12 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 
-public class Tank extends Entity implements Clickable{
+public class Tank extends Entity{
 
 	private Color color;
 	private Bullet bullet;
 	private boolean canShot;
+	public final static float BASICSPEED = 75;
 	
 	public Tank(float width, float height) {
 		super(width, height);
@@ -52,22 +53,33 @@ public class Tank extends Entity implements Clickable{
 				getWidth(), getHeight());
 		if(bullet!=null)
 			bullet.draw(batch);
-		System.out.println(getPositionX());
+		//System.out.println(getPositionX());
 	}
 
-	@Override
-	public void onClick() {
-		speedX = -speedX;
+	public void moveUp() {
+		setSpeed(0, BASICSPEED);
+	}
+	
+	public void moveDown() {
+		setSpeed(0, -BASICSPEED);
+	}
+	
+	public void moveRight() {
+		setSpeed(BASICSPEED, 0);
+	}
+	
+	public void moveLeft() {
+		setSpeed(-BASICSPEED, 0);
 	}
 	
 	public void shot(){
 		if(canShot){
 			canShot = false;
 			if(speedX>0)
-				bullet = new Bullet(10, 10, getPositionX()+getWidth()+10, posY+getHeight()/2, this);
+				bullet = new Bullet(10, 10, getPositionX()+getWidth()+10, posY+getHeight()/2 - 10/2, this);
 			else
 				bullet = new Bullet(10, 10, getPositionX()-10, posY+getHeight()/2 - 10/2, this);
-			bullet.setSpeedX(getSpeedX()*4);
+			bullet.setSpeed(getSpeedX()*4,getSpeedY()*4);
 		}
 	}
 	

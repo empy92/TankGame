@@ -1,10 +1,13 @@
 package com.tankgame.Screen;
 
+import java.util.Iterator;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
+import com.tankgame.entity.Rock;
 import com.tankgame.entity.Tank;
 
 public class GameRenderer {
@@ -30,6 +33,9 @@ public class GameRenderer {
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		shapeRenderer.begin(ShapeType.Filled);
 		world.getTank().draw(shapeRenderer);
+		Iterator<Rock> iter = world.rocks.iterator();
+		while(iter.hasNext())
+			iter.next().draw(shapeRenderer);
 		shapeRenderer.end();
 	}
 }

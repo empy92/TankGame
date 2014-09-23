@@ -1,5 +1,8 @@
 package com.tankgame.entity;
 
+import com.badlogic.gdx.math.Intersector;
+import com.badlogic.gdx.math.Rectangle;
+
 public abstract class Entity extends BasicEntity{
 
 	/** The current speed of this entity horizontally (pixels/sec) */
@@ -54,6 +57,7 @@ public abstract class Entity extends BasicEntity{
 	* @return True if the entities collide with each other
 	*/
 	public boolean collidesWith(BasicEntity other) {
-		return false;
+		return Intersector.overlaps(new Rectangle(posX, posY, width, height), 
+				new Rectangle(other.posX, other.posY, other.width, other.height));
 	}
 }

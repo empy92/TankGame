@@ -13,8 +13,16 @@ public class InputHandler implements InputProcessor{
 	
 	@Override
 	public boolean keyDown(int keycode) {
-		if(keycode == 21 || keycode == 22)
-			world.getTank().onClick();
+		if(keycode == 21 || keycode == 22 || keycode == 19 || keycode == 20){
+			if(keycode == 21)
+				world.getTank().moveLeft();
+			if(keycode == 22)
+				world.getTank().moveRight();
+			if(keycode == 20)
+				world.getTank().moveDown();
+			if(keycode == 19)
+				world.getTank().moveUp();
+		}
 		else if(keycode == 62)
 			world.getTank().shot();
 		return true;

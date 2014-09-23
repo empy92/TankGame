@@ -23,15 +23,31 @@ public class Bullet extends Entity{
 	@Override
 	public void move(float delta) {
 		super.move(delta);
-		outOfScreen();
+		if(outOfScreen())
+			stop();
 	}
 	
-	private void outOfScreen(){
+	private boolean outOfScreen(){
 		boolean out = false;
 		if(getPositionX()>Gdx.graphics.getWidth()/2)
-			shoter.canShot(true);
-		if(getPositionX()<Gdx.graphics.getWidth()/-2)
-			shoter.canShot(true);
+			out = true;
+		else if(getPositionX()<Gdx.graphics.getWidth()/-2)
+			out = true;
+		return out;
+	}
+	
+	private void expode(){
+		stop();
+	}
+	
+	private void stop(){
+		shoter.canShot(true);
+		setSpeed(0, 0);
+	}
+	
+	@Override
+	public boolean collidesWith(BasicEntity other) {
+		return super.collidesWith(other);
 	}
 
 }
