@@ -3,7 +3,6 @@ package com.tankgame.entity;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
-import com.sun.java.swing.plaf.gtk.GTKConstants.ShadowType;
 
 public class Rock extends BasicEntity{
 

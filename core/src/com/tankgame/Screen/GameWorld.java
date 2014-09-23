@@ -4,13 +4,16 @@ import java.util.ArrayList;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
+import com.tankgame.entity.JoyStick;
 import com.tankgame.entity.Rock;
+import com.tankgame.entity.SimpleButton;
 import com.tankgame.entity.Tank;
 
 public class GameWorld {
 
 	private Tank tankTesting;
 	public ArrayList<Rock> rocks;
+	public JoyStick digitalJoyStick;
 	private Map map;
 	
 	public GameWorld() {
@@ -25,8 +28,8 @@ public class GameWorld {
 				}
 			}
 		}
+		digitalJoyStick = new JoyStick();
 		tankTesting = new Tank(40, 40, Color.MAROON);
-		tankTesting.setSpeedX(Tank.BASICSPEED);
 	}
 	
 	public void update(float delta){

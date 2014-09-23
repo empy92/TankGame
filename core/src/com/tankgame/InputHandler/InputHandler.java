@@ -1,7 +1,11 @@
 package com.tankgame.InputHandler;
 
+import java.util.Iterator;
+
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
 import com.tankgame.Screen.GameWorld;
+import com.tankgame.entity.SimpleButton;
 
 public class InputHandler implements InputProcessor{
 
@@ -42,8 +46,19 @@ public class InputHandler implements InputProcessor{
 
 	@Override
 	public boolean touchDown(int screenX, int screenY, int pointer, int button) {
-		// TODO Auto-generated method stub
-		return false;
+		screenX = screenX-Gdx.graphics.getWidth()/2;
+		screenY = -(screenY-Gdx.graphics.getHeight()/2);
+		if(world.digitalJoyStick.up.isTouchDown(screenX, screenY))
+			world.getTank().moveUp();
+		if(world.digitalJoyStick.down.isTouchDown(screenX, screenY))
+			world.getTank().moveDown();
+		if(world.digitalJoyStick.right.isTouchDown(screenX, screenY))
+			world.getTank().moveRight();
+		if(world.digitalJoyStick.left.isTouchDown(screenX, screenY))
+			world.getTank().moveLeft();
+		if(world.digitalJoyStick.shot.isTouchDown(screenX, screenY))
+			world.getTank().shot();
+		return true;
 	}
 
 	@Override

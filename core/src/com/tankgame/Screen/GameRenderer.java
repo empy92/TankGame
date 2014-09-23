@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 import com.tankgame.entity.Rock;
+import com.tankgame.entity.SimpleButton;
 import com.tankgame.entity.Tank;
 
 public class GameRenderer {
@@ -36,6 +37,10 @@ public class GameRenderer {
 		Iterator<Rock> iter = world.rocks.iterator();
 		while(iter.hasNext())
 			iter.next().draw(shapeRenderer);
+		Iterator<SimpleButton> iterator = world.digitalJoyStick.getButton().iterator();
+		while(iterator.hasNext())
+			iterator.next().draw(shapeRenderer);
 		shapeRenderer.end();
+
 	}
 }

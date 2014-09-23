@@ -1,9 +1,7 @@
 package com.tankgame.Screen;
 
-import java.awt.Point;
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
@@ -11,10 +9,8 @@ import com.badlogic.gdx.files.FileHandle;
 public class Map {
 
 	public char map[][];
-	private Point size;
 	
 	public Map(int x, int y) {
-		size = new Point(x,y);
 		map = new char[x][y];
 	}
 	

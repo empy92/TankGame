@@ -9,7 +9,7 @@ public class Tank extends Entity{
 	private Color color;
 	private Bullet bullet;
 	private boolean canShot;
-	public final static float BASICSPEED = 75;
+	public final static float BASICSPEED = 40;
 	
 	public Tank(float width, float height) {
 		super(width, height);
