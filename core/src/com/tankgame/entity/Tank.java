@@ -75,10 +75,18 @@ public class Tank extends Entity{
 	public void shot(){
 		if(canShot){
 			canShot = false;
-			if(speedX>0)
-				bullet = new Bullet(10, 10, getPositionX()+getWidth()+10, posY+getHeight()/2 - 10/2, this);
-			else
-				bullet = new Bullet(10, 10, getPositionX()-10, posY+getHeight()/2 - 10/2, this);
+			if(speedX!=0){
+				if(speedX>0)
+					bullet = new Bullet(10, 10, getPositionX()+getWidth()+10, posY+getHeight()/2 - 10/2, this);
+				else
+					bullet = new Bullet(10, 10, getPositionX()-10, posY+getHeight()/2 - 10/2, this);
+			}
+			else if(speedY!=0){
+				if(speedY>0)
+					bullet = new Bullet(10, 10, getPositionX()+getWidth()/2-10/2, posY+getHeight() + 10, this);
+				else
+					bullet = new Bullet(10, 10, getPositionX()+getWidth()/2-10/2, posY - 10, this);
+			}
 			bullet.setSpeed(getSpeedX()*4,getSpeedY()*4);
 		}
 	}

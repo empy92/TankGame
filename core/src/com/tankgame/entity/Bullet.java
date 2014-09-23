@@ -33,6 +33,10 @@ public class Bullet extends Entity{
 			out = true;
 		else if(getPositionX()<Gdx.graphics.getWidth()/-2)
 			out = true;
+		else if(getPositionY()<Gdx.graphics.getHeight()/-2)
+			out = true;
+		else if(getPositionY()>Gdx.graphics.getHeight()/2)
+			out = true;
 		return out;
 	}
 	
