@@ -1,6 +1,7 @@
 package com.tankgame.entity;
 
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Rectangle;
@@ -65,6 +66,12 @@ public class SimpleButton extends BasicEntity{
 		// Whenever a finger is released, we will cancel any presses.
 		isPressed = false;
 		return false;
+	}
+
+	@Override
+	public void draw(SpriteBatch batch) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

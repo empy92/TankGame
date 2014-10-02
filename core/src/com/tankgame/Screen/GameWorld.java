@@ -6,7 +6,6 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.tankgame.entity.JoyStick;
 import com.tankgame.entity.Rock;
-import com.tankgame.entity.SimpleButton;
 import com.tankgame.entity.Tank;
 
 public class GameWorld {

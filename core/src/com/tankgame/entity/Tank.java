@@ -2,7 +2,9 @@ package com.tankgame.entity;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.tankgame.AssetLoader.AssetLoader;
 
 public class Tank extends Entity{
 
@@ -47,10 +49,17 @@ public class Tank extends Entity{
 	}
 
 	@Override
-	public void draw(ShapeRenderer batch) {
-		batch.setColor(getColor());
-		batch.rect(getPositionX(), getPositionY(), 
-				getWidth(), getHeight());
+	public void draw(SpriteBatch batch) {
+		float rotation = 0.0f;
+		if(getSpeedX() >0)
+			rotation = -90.0f;
+		else if(getSpeedX() <0)
+			rotation = 90.0f;
+		else if(getSpeedY() >0)
+			rotation = 0.0f;
+		else if(getSpeedY() <0)
+			rotation = 180.0f;
+		batch.draw(AssetLoader.tank, posX, posY, width/2.0f, height/2.0f, width, height, 1, 1, rotation);
 		if(bullet!=null)
 			bullet.draw(batch);
 		//System.out.println(getPositionX());

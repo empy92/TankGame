@@ -2,6 +2,7 @@ package com.tankgame.Screen;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.tankgame.AssetLoader.AssetLoader;
 import com.tankgame.InputHandler.InputHandler;
 
 public class GameScreen implements Screen{
@@ -10,6 +11,7 @@ public class GameScreen implements Screen{
 	private GameWorld world;
 	
 	public GameScreen() {
+		AssetLoader.loadTexture();
 		world = new GameWorld();
 		renderer = new GameRenderer(world);
 		Gdx.input.setInputProcessor(new InputHandler(world));
