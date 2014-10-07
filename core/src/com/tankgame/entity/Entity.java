@@ -9,13 +9,19 @@ public abstract class Entity extends BasicEntity{
 	protected float speedX;
 	/** The current speed of this entity vertically (pixels/sec) */
 	protected float speedY;
+	protected enum Direction{UP,DOWN,RIGHT,LEFT,
+							UP_RIGHT,UP_LEFT,DOWN_RIGHT,DOWN_LEFT							
+	};
+	protected Direction direction;
 	
 	public Entity(float width, float height) {
 		super(width, height);
+		direction = Direction.UP;
 	}
 	
 	public Entity(float width, float height, float posX, float posY) {
 		super(width, height, posX, posY);
+		direction = Direction.UP;
 	}
 	
 	public void setSpeedX(float speedX){
@@ -37,6 +43,14 @@ public abstract class Entity extends BasicEntity{
 	
 	public float getSpeedY(){
 		return speedY;
+	}
+	
+	public Direction getDirection(){
+		return direction;
+	}
+	
+	public void setDirection(Direction direction){
+		this.direction = direction;
 	}
 	
 	/**

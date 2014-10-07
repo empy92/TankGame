@@ -22,18 +22,18 @@ public class Bullet extends Entity{
 	
 	@Override
 	public void move(float delta) {
-		super.move(delta);
 		if(outOfScreen())
 			stop();
+		super.move(delta);
 	}
 	
 	private boolean outOfScreen(){
 		boolean out = false;
 		if(getPositionX()>Gdx.graphics.getWidth()/2)
 			out = true;
-		else if(getPositionX()<Gdx.graphics.getWidth()/-2)
+		else if(getPositionX()<Gdx.graphics.getWidth()/-2-getWidth())
 			out = true;
-		else if(getPositionY()<Gdx.graphics.getHeight()/-2)
+		else if(getPositionY()<Gdx.graphics.getHeight()/-2-getHeight())
 			out = true;
 		else if(getPositionY()>Gdx.graphics.getHeight()/2)
 			out = true;

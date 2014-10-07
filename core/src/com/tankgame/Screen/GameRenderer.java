@@ -12,10 +12,10 @@ import com.tankgame.entity.Rock;
 import com.tankgame.entity.SimpleButton;
 import com.tankgame.entity.Tank;
 
-public class GameRenderer {
+public class GameRenderer{
 
 	//to draw geometrical item
-	private ShapeRenderer shapeRenderer;
+	public static ShapeRenderer shapeRenderer;
 	
 	//to draw sprite item
 	private SpriteBatch spriteBatch;
@@ -44,8 +44,9 @@ public class GameRenderer {
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		shapeRenderer.begin(ShapeType.Filled);
 		spriteBatch.begin();
-		spriteBatch.enableBlending();
+		spriteBatch.disableBlending();
 		world.getTank().draw(spriteBatch);
+		spriteBatch.enableBlending();
 		Iterator<Rock> iter = world.rocks.iterator();
 		while(iter.hasNext())
 			iter.next().draw(spriteBatch);

@@ -32,6 +32,10 @@ public class GameWorld {
 	}
 	
 	public void update(float delta){
+		for(int i=0; i<rocks.size(); i++){
+			rocks.get(i).color = false;
+			tankTesting.collidesWith(rocks.get(i));
+		}
 		tankTesting.move(delta);
 	}
 	
